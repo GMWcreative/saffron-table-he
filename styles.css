@@ -328,7 +328,8 @@ button,input {
 }
 
 .social-proof small b {
-    color: var(--gold)
+    color: var(--gold);
+    font-size: 14px
 }
 
 .hero-art {
@@ -2524,7 +2525,9 @@ body {
     background: rgba(18,19,17,.38);
     backdrop-filter: blur(12px);
     color: #fff;
-    font-size: 20px;
+    display: grid;
+    place-items: center;
+    padding: 0;
     cursor: pointer;
     transition: .25s
 }
@@ -2536,14 +2539,16 @@ body {
     transform: translate(-50%,-50%) scale(1.1)
 }
 
-.reel-card.is-playing .reel-play {
-    font-size: 0
+.reel-play .ph-pause {
+    display: none
 }
 
-.reel-card.is-playing .reel-play:after {
-    content: "Ⅱ";
-    font-size: 21px;
-    font-weight: 800
+.reel-card.is-playing .reel-play .ph-play {
+    display: none
+}
+
+.reel-card.is-playing .reel-play .ph-pause {
+    display: block
 }
 
 .social-float {
@@ -5876,4 +5881,97 @@ html,body {
   .menu-section .categories img {
     transition: none;
   }
+}
+
+.stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    letter-spacing: 0
+}
+
+.play-btn .ph-play,
+.reel-play .ph-play {
+    font-size: 18px;
+    transform: translateX(2px)
+}
+
+.reel-play .ph-fill {
+    font-size: 26px
+}
+
+.reel-top .ph-circle {
+    font-size: 8px
+}
+
+.search button,
+.footer-search button,
+.video-modal>button,
+.courier-float>a {
+    display: grid;
+    place-items: center
+}
+
+.search button .ph {
+    font-size: 18px
+}
+
+.nav-order i,
+.promo-link b,
+.eyebrow b {
+    font-size: 18px
+}
+
+.chef-grid article>div b,
+.studio-credit i {
+    font-size: 22px
+}
+
+.dish-float .stars,
+.gallery-cards figcaption .stars {
+    font-size: 12px
+}
+
+.testimonial-track .stars {
+    font-size: 14px
+}
+
+.footer-book b,
+.social-cta span {
+    font-size: 20px
+}
+
+.feature-grid i {
+    font-size: 22px
+}
+
+.product-card button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px
+}
+
+.product-card button .ph {
+    font-size: 13px
+}
+
+.social-platforms button>b,
+.social-float-like b,
+.socials a .ph {
+    font-size: 20px
+}
+
+.video-modal>button {
+    width: 42px;
+    height: 42px;
+    font-size: 20px
+}
+
+.footer-search button .ph {
+    font-size: 18px
+}
+
+.mobile-dock .dock-links a span .ph,
+.mobile-dock .dock-primary span .ph {
+    font-size: 16px
 }

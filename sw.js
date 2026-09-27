@@ -3,8 +3,8 @@ const CACHE = 'saffron-table-v4-5';
 const ASSETS = [
   './',
   'index.html',
-  'assets/styles.css?v=4.5',
-  'assets/app.js?v=4.5',
+  'styles.css?v=4.5',
+  'app.js?v=4.5',
   'manifest.webmanifest'
 ];
 

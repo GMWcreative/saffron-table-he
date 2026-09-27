@@ -1,0 +1,324 @@
+/* Showcase tour. Inactive unless html.showcase-mode is present. */
+
+html.showcase-mode.showcase-running,
+html.showcase-mode.showcase-running * {
+  cursor: none !important;
+}
+
+html.showcase-mode.showcase-running {
+  overflow-x: clip;
+  scroll-behavior: auto !important;
+}
+
+.showcase-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2147483000;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+html.showcase-mode.showcase-cursor-on .showcase-cursor {
+  opacity: 1;
+}
+
+.showcase-cursor-ring,
+.showcase-cursor-pointer {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.showcase-cursor-ring {
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1px solid rgba(214, 167, 58, 0.72);
+  border-radius: 50%;
+  background: rgba(214, 167, 58, 0.08);
+  box-shadow: inset 0 0 0 4px rgba(255, 248, 230, 0.18);
+  transition: width 0.35s ease, height 0.35s ease, margin 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+}
+
+.showcase-cursor.is-hot .showcase-cursor-ring,
+.showcase-cursor.is-text .showcase-cursor-ring {
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  background: rgba(214, 167, 58, 0.14);
+  border-color: rgba(191, 138, 28, 0.9);
+}
+
+.showcase-cursor.is-text .showcase-cursor-pointer {
+  opacity: 0.35;
+}
+
+.showcase-cursor.is-text .showcase-cursor-ring {
+  border-radius: 10px;
+  width: 18px;
+  height: 28px;
+  margin: -14px 0 0 -9px;
+}
+
+.showcase-cursor-pointer {
+  width: 18px;
+  height: 18px;
+  margin: -2px 0 0 -3px;
+  background: #e0b14a;
+  clip-path: polygon(0 0, 100% 68%, 58% 74%, 42% 100%);
+  filter: drop-shadow(0 2px 2px rgba(48, 32, 8, 0.28));
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+html[dir="rtl"] .showcase-cursor-pointer {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .showcase-cursor.is-hot .showcase-cursor-pointer {
+  transform: scaleX(-1) scale(1.08);
+}
+
+html[dir="ltr"] .showcase-cursor.is-hot .showcase-cursor-pointer {
+  transform: scale(1.08);
+}
+
+.showcase-cursor.is-clicking .showcase-cursor-ring {
+  animation: showcase-click 0.48s ease-out;
+}
+
+html.showcase-mode.showcase-mobile .showcase-cursor-pointer {
+  opacity: 0;
+}
+
+html.showcase-mode.showcase-mobile .showcase-cursor-ring {
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  background: rgba(214, 167, 58, 0.16);
+}
+
+@keyframes showcase-click {
+  0% { transform: scale(1); opacity: 1; }
+  70% { transform: scale(1.65); opacity: 0.35; }
+  100% { transform: scale(1.85); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.showcase-mode .showcase-cursor,
+  html.showcase-mode .showcase-cursor-ring,
+  html.showcase-mode .showcase-cursor-pointer {
+    transition: width 0.35s ease, height 0.35s ease, margin 0.35s ease, opacity 0.35s ease, transform 0.35s ease, background 0.35s ease !important;
+    animation: none !important;
+  }
+
+  html.showcase-mode .showcase-cursor.is-clicking .showcase-cursor-ring {
+    animation: showcase-click 0.48s ease-out !important;
+  }
+}
+
+/* Authentic hover mirrors. These classes are added only during the tour. */
+
+html.showcase-mode .main-nav a.showcase-hover {
+  background: #efe5d0;
+  color: #73510e;
+}
+
+html.showcase-mode .btn.showcase-hover {
+  transform: translateY(-2px);
+}
+
+html.showcase-mode .play-btn.showcase-hover span {
+  transform: scale(1.06);
+  background: #fff8ea;
+  box-shadow: 0 10px 24px rgba(80, 52, 8, 0.12);
+}
+
+html.showcase-mode .promo-card.showcase-hover {
+  transform: translateY(-10px);
+  box-shadow: 0 38px 95px rgba(57, 43, 19, 0.18);
+}
+
+html.showcase-mode .promo-card.showcase-hover img {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+html.showcase-mode .promo-link.showcase-hover b {
+  transform: translate(-4px, 4px);
+}
+
+html.showcase-mode .feature-grid div.showcase-hover {
+  transform: translateY(-4px);
+  background: #fff;
+}
+
+html.showcase-mode .menu-section .categories button.showcase-hover:not(.active) {
+  background: #343a2f;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+html.showcase-mode .menu-section .categories button.showcase-hover:not(.active) img {
+  transform: scale(1.08) rotate(-3deg);
+  border-color: #d6a73a;
+}
+
+html.showcase-mode .product-card.showcase-hover {
+  transform: translateY(-7px);
+  box-shadow: 0 16px 45px rgba(44, 31, 11, 0.12);
+}
+
+html.showcase-mode .product-card.showcase-hover > img {
+  transform: scale(1.06);
+}
+
+html.showcase-mode .product-card button.showcase-hover {
+  background: var(--gold-bright, #f6ad1b);
+  color: #1d211b;
+}
+
+html.showcase-mode .gallery-cards figure.showcase-hover {
+  transform: translateY(-8px);
+  z-index: 3;
+}
+
+html.showcase-mode .gallery-cards figure.showcase-hover img {
+  transform: scale(1.06);
+}
+
+html.showcase-mode .chef-grid article.showcase-hover {
+  transform: translateY(-14px);
+  border-radius: 22px;
+}
+
+html.showcase-mode .chef-grid article.showcase-hover img {
+  filter: saturate(1);
+  transform: scale(1.045);
+}
+
+html.showcase-mode .chef-grid article.showcase-hover > div b {
+  transform: rotate(45deg);
+}
+
+html.showcase-mode .social-marquee-item.showcase-hover {
+  background: #30372b;
+}
+
+html.showcase-mode .social-marquee-item.showcase-hover .social-marquee-symbol {
+  color: #d6a73a;
+  transform: rotate(-12deg) scale(1.1);
+}
+
+html.showcase-mode .social-platforms button.showcase-hover {
+  border-color: #d7ae4b;
+  background: #d7ae4b;
+  color: #181916;
+  transform: translateY(-3px);
+}
+
+html.showcase-mode .reel-stage.showcase-hover .reel-card-a {
+  transform: translate(-106%, -50%) rotate(-14deg);
+}
+
+html.showcase-mode .reel-stage.showcase-hover .reel-card-b {
+  transform: translate(-50%, -56%) rotate(0deg) translateZ(35px);
+}
+
+html.showcase-mode .reel-stage.showcase-hover .reel-card-c {
+  transform: translate(7%, -49%) rotate(15deg);
+}
+
+html.showcase-mode .reel-card.showcase-hover > img,
+html.showcase-mode .reel-card.is-playing > img {
+  transform: scale(1.07);
+}
+
+html.showcase-mode .reel-play.showcase-hover,
+html.showcase-mode .reel-card.is-playing .reel-play {
+  background: #d7ae4b;
+  color: #171815;
+  border-color: #d7ae4b;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+html.showcase-mode .slider-nav button.showcase-hover {
+  background: #d6a73a;
+  color: #1d211b;
+  border-color: #d6a73a;
+  transform: translateY(-4px);
+}
+
+html.showcase-mode .slider-nav button.showcase-hover span {
+  transform: translateX(-4px);
+}
+
+html.showcase-mode .slider-nav button:first-child.showcase-hover span {
+  transform: translateX(4px);
+}
+
+html.showcase-mode .footer-grid a.showcase-hover {
+  color: #e8bd57;
+  transform: translateX(-4px);
+}
+
+html.showcase-mode .footer-search button.showcase-hover {
+  transform: translateY(-2px);
+}
+
+html.showcase-mode .footer-book.showcase-hover b {
+  transform: rotate(45deg);
+}
+
+html.showcase-mode .studio-credit.showcase-hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(240, 196, 93, 0.55);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+html.showcase-mode .studio-credit.showcase-hover i {
+  transform: rotate(45deg);
+  background: #f0c45d;
+}
+
+@media (max-width: 1000px) {
+  html.showcase-mode .reel-stage.showcase-hover .reel-card-a {
+    transform: translate(-94%, -48%) rotate(-9deg);
+  }
+
+  html.showcase-mode .reel-stage.showcase-hover .reel-card-b {
+    transform: translate(-50%, -52%) rotate(0deg);
+  }
+
+  html.showcase-mode .reel-stage.showcase-hover .reel-card-c {
+    transform: translate(-6%, -48%) rotate(9deg);
+  }
+}
+
+@media (max-width: 520px) {
+  html.showcase-mode .reel-stage.showcase-hover .reel-card-a {
+    transform: translate(-105%, -48%) rotate(-8deg);
+  }
+
+  html.showcase-mode .reel-stage.showcase-hover .reel-card-b {
+    transform: translate(-50%, -52%) rotate(0deg);
+  }
+
+  html.showcase-mode .reel-stage.showcase-hover .reel-card-c {
+    transform: translate(5%, -48%) rotate(8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.showcase-mode .showcase-hover,
+  html.showcase-mode .showcase-hover img,
+  html.showcase-mode .showcase-hover b,
+  html.showcase-mode .showcase-hover i,
+  html.showcase-mode .showcase-hover span,
+  html.showcase-mode .reel-stage.showcase-hover .reel-card {
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s, filter 0.45s, background 0.3s, color 0.3s, border-color 0.3s !important;
+  }
+}
